@@ -1,0 +1,32 @@
+// C++ code
+//
+const byte ButtonPin = 2;
+volatile int count = 1;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  pinMode(ButtonPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(ButtonPin), PressCount, FALLING);
+}
+
+void loop()
+{
+  
+}
+
+void PressCount()
+{
+  if (count==1) {
+    Serial.print("O botao foi clicado: ");
+    Serial.print(count);
+    Serial.println(" vez.");
+    count++;
+  } else {
+  Serial.print("O botao foi clicado: ");
+  Serial.print(count);
+  Serial.println(" vezes.");
+  count++;
+  }
+}
